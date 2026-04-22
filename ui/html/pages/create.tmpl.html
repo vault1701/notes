@@ -1,0 +1,23 @@
+{{define "title"}}Create a new Note{{end}}
+{{define "main"}}
+<form action='/note/create' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+    <div>
+        <label>Title:</label>
+        {{with .Form.FieldErrors.title}}
+            <label class='error'>{{.}}</label>
+        {{end}}
+        <input type='text' name='title' value="{{.Form.Title}}">
+    </div>
+    <div>
+        <label>Content:</label>
+        {{with .Form.FieldErrors.content}}
+            <label class='error'>{{.}}</label>
+        {{end}}
+        <textarea name='content'>{{.Form.Content}}</textarea>
+    </div>
+    <div>
+        <input type='submit' value='Save Note'>
+    </div>
+</form>
+{{end}}

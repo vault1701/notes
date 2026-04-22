@@ -1,0 +1,20 @@
+{{define "title"}}Note #{{.Note.ID}}{{end}}
+
+{{define "main"}}
+<div class="note">
+    <div class="metadata">
+        <strong>{{.Note.Title}}</strong>
+        {{if .IsAuthenticated}}
+        <span>
+            <form action='/note/delete/{{.Note.ID}}' method='POST'>
+                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+                <input type="image" src="/static/icon/delete.svg" height="20" width="20" />
+            </form>
+        </span>
+
+        <span><a href="/note/edit/{{.Note.ID}}"><img src="/static/icon/edit.svg" height="20" width="20" /></a></span>
+        {{end}}
+    </div>
+    <pre><code>{{.Note.ContentMD}}</code></pre>
+</div>
+{{end}}

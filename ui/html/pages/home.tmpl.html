@@ -1,0 +1,20 @@
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+    {{if .Notes}}
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+        </tr>
+        {{range .Notes}}
+        <tr>
+            <td><a href='/note/view/{{.ID}}'>{{.Title}}</a></td>
+            <td>{{.Content}}</td>
+        </tr>
+        {{end}}
+    </table>
+    {{else}}
+    <p>There's nothing here...</p>
+    {{end}}
+{{end}}
