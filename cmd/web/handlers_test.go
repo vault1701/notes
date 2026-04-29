@@ -216,9 +216,9 @@ func TestSnippetCreate(t *testing.T) {
 		form.Add("email", "alice@example.com")
 		form.Add("password", "pa$$word")
 		form.Add("csrf_token", csrfToken)
-		code, _, body := ts.postForm(t, "/user/login", form)
+		ts.postForm(t, "/user/login", form)
 
-		code, _, body = ts.get(t, "/note/create")
+		code, _, body := ts.get(t, "/note/create")
 
 		assert.Equal(t, code, http.StatusOK)
 		assert.StringContains(t, body, "<form action='/note/create' method='POST'>")
@@ -244,9 +244,9 @@ func TestEditNote(t *testing.T) {
 		form.Add("email", "alice@example.com")
 		form.Add("password", "pa$$word")
 		form.Add("csrf_token", csrfToken)
-		code, _, body := ts.postForm(t, "/user/login", form)
+		ts.postForm(t, "/user/login", form)
 
-		code, _, body = ts.get(t, "/note/edit/1")
+		code, _, body := ts.get(t, "/note/edit/1")
 
 		assert.Equal(t, code, http.StatusOK)
 		assert.StringContains(t, body, "<form action='/note/edit/1' method='POST'>")

@@ -72,7 +72,7 @@ func (app *application) noteView(w http.ResponseWriter, r *http.Request) {
 
 	data := app.newTemplateData(r)
 	data.Note = note
-	data.Note.ContentMD = app.mdToHtml(data.Note.Content)
+	data.Note.ContentMD = app.mdToHTML(data.Note.Content)
 
 	app.render(w, r, http.StatusOK, "view.tmpl.html", data)
 }
@@ -314,9 +314,9 @@ func (app *application) userLogoutPost(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) accountView(w http.ResponseWriter, r *http.Request) {
-	userId := app.sessionManager.GetInt(r.Context(), "authenticatedUserID")
+	userID := app.sessionManager.GetInt(r.Context(), "authenticatedUserID")
 
-	user, err := app.users.Get(userId)
+	user, err := app.users.Get(userID)
 	if err != nil {
 		if errors.Is(err, models.ErrNoRecord) {
 			http.Redirect(w, r, "/user/login", http.StatusSeeOther)
@@ -363,14 +363,14 @@ func (app *application) accountPasswordUpdatePost(w http.ResponseWriter, r *http
 		return
 	}
 
-	userId := app.sessionManager.GetInt(r.Context(), "authenticatedUserID")
+	userID := app.sessionManager.GetInt(r.Context(), "authenticatedUserID")
 
-	if userId == 0 {
+	if userID == 0 {
 		app.serverError(w, r, models.ErrNoRecord)
 		return
 	}
 
-	err = app.users.PasswordUpdate(userId, form.CurrentPassword, form.PasswordConfirm)
+	err = app.users.PasswordUpdate(userID, form.CurrentPassword, form.PasswordConfirm)
 	if err != nil {
 		if errors.Is(err, models.ErrInvalidCredentials) {
 			data := app.newTemplateData(r)

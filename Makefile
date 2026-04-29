@@ -1,4 +1,3 @@
-# Change these variables as necessary.
 main_package_path = ./cmd/web
 binary_name = notes
 

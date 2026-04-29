@@ -98,7 +98,7 @@ func (app *application) isAuthenticated(r *http.Request) bool {
 	return isAuthenticated
 }
 
-func (app *application) mdToHtml(md string) template.HTML {
+func (app *application) mdToHTML(md string) template.HTML {
 	p := parser.NewWithExtensions(parser.CommonExtensions | parser.AutoHeadingIDs | parser.NoEmptyLineBeforeBlock)
 	doc := p.Parse([]byte(md))
 
