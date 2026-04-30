@@ -29,6 +29,8 @@ type application struct {
 func main() {
 	addr := flag.String("addr", ":4000", "HTTP network address")
 	dbPath := flag.String("db", "", "Path to the SQLite database")
+	tlsCert := flag.String("cert", "", "Path to the TLS cert")
+	tlsKey := flag.String("key", "", "Path to the TLS key")
 	debug := flag.Bool("debug", false, "Debug mode with more detailed logging")
 	flag.Parse()
 
@@ -36,6 +38,10 @@ func main() {
 
 	if len(*dbPath) == 0 {
 		logger.Error("database command line argument was not set")
+		os.Exit(1)
+	}
+	if len(*tlsCert) == 0 || len(*tlsKey) == 0 {
+		logger.Error("tls cert and/or key command line argument was not set")
 		os.Exit(1)
 	}
 
@@ -84,7 +90,7 @@ func main() {
 
 	logger.Info("starting server", "addr", *addr)
 
-	err = srv.ListenAndServeTLS("./tls/cert.pem", "./tls/key.pem")
+	err = srv.ListenAndServeTLS(*tlsCert, *tlsKey)
 	logger.Error(err.Error())
 	os.Exit(1)
 }
