@@ -1,6 +1,6 @@
 * {
     background-color: #000000;
-    color: #bbbbbb;
+    color: #f2f2f2;
     font-size: 20px;
     font-family: "Ubuntu Mono", monospace;
     border-radius: 4px;
@@ -46,7 +46,7 @@ input[type=text] {
     padding-bottom: 8px;
     margin-bottom: 8px;
     display: inline-block;
-    border: 1px solid #bbbbbb;
+    border: 1px solid #f2f2f2;
     box-sizing: border-box;
 }
 
@@ -72,7 +72,7 @@ textarea {
     padding-bottom: 8px;
     margin-bottom: 8px;
     display: inline-block;
-    border: 1px solid #bbbbbb;
+    border: 1px solid #f2f2f2;
     box-sizing: border-box;
 }
 
@@ -100,14 +100,14 @@ textarea {
     overflow: hidden;
     background-color: #000000;
     margin-bottom: 20px;
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px solid #f2f2f2;
     border-radius: 0px;
 }
 
 #navbar a,
 #navbar form {
     display: block;
-    color: #bbbbbb;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px;
     text-decoration: none;
@@ -136,7 +136,7 @@ textarea {
 .notes a {
     flex-grow: 1;
     background-color: #000000;
-    border: 2px solid grey;
+    border: 2px solid #f2f2f2;
     text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -145,12 +145,18 @@ textarea {
 #note pre {
     white-space: pre-wrap;
     margin: 0;
-    padding: 0;
+    padding: 8px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    border: 1px solid rgba(240, 240, 240, 0.5);
 }
 
-#note h2,
 #note p,
 #note h1,
+#note h2,
+#note h3,
 #note ul {
     margin: 0;
 }
