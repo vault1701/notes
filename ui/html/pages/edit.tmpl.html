@@ -1,7 +1,7 @@
 {{define "title"}}Editing note{{end}}
 {{define "main"}}
-<form action='/note/edit/{{.Form.ID}}' method='POST'>
-    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
+<form class='input-form' action='/note/edit/{{.Form.ID}}' method='POST'>
+    <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
     <input type="hidden" name="id" value="{{.Form.ID}}">
     <div>
         <label>Title:</label>

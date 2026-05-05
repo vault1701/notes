@@ -96,7 +96,7 @@ func TestUserSignup(t *testing.T) {
 		validName     = "Bob"
 		validPassword = "validPassword"
 		validEmail    = "bob@example.com"
-		formTag       = "<form action='/user/signup' method='POST' novalidate>"
+		formTag       = "<form class='input-form' action='/user/signup' method='POST' novalidate>"
 	)
 
 	tests := []struct {
@@ -221,7 +221,7 @@ func TestSnippetCreate(t *testing.T) {
 		code, _, body := ts.get(t, "/note/create")
 
 		assert.Equal(t, code, http.StatusOK)
-		assert.StringContains(t, body, "<form action='/note/create' method='POST'>")
+		assert.StringContains(t, body, "<form class='input-form' action='/note/create' method='POST'>")
 	})
 }
 
@@ -249,6 +249,6 @@ func TestEditNote(t *testing.T) {
 		code, _, body := ts.get(t, "/note/edit/1")
 
 		assert.Equal(t, code, http.StatusOK)
-		assert.StringContains(t, body, "<form action='/note/edit/1' method='POST'>")
+		assert.StringContains(t, body, "<form class='input-form' action='/note/edit/1' method='POST'>")
 	})
 }

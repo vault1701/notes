@@ -1,22 +1,22 @@
 {{define "nav"}}
-<nav>
-    <div>
+<div id="navbar">
+    <div id="navleft">
         <a href="/">Home</a>
         {{if .IsAuthenticated}}
         <a href="/note/create">Create Note</a>
         {{end}}
     </div>
-    <div>
+    <div id="navright">
         {{if .IsAuthenticated}}
-        <a href="/account/view">Account</a>
         <form action="/user/logout" method="POST">
-            <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
-            <button>Logout</button>
+            <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+            <input type="image" src="/static/icon/logout.svg" height="20" width="20" />
         </form>
+        <a href="/account/view">Account</a>
         {{else}}
         <a href="/user/signup">Signup</a>
         <a href="/user/login">Login</a>
         {{end}}
     </div>
-</nav>
+</div>
 {{end}}
