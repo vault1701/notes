@@ -1,9 +1,9 @@
 * {
     background-color: #000000;
     color: #f2f2f2;
+    font-family: 'Roboto';
     font-size: 20px;
-    font-family: "Ubuntu Mono", monospace;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 a {
@@ -32,7 +32,8 @@ table {
     max-width: 700px;
 }
 
-th, td{
+th,
+td {
     text-align: left;
     border: 1px solid #f2f2f2;
     padding: 4px;
@@ -136,7 +137,7 @@ textarea {
 .notes a {
     flex-grow: 1;
     background-color: #000000;
-    border: 2px solid #f2f2f2;
+    border: 1px solid #f2f2f2;
     text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -150,7 +151,6 @@ textarea {
     margin-left: auto;
     margin-right: auto;
     max-width: 700px;
-    border: 1px solid rgba(240, 240, 240, 0.5);
 }
 
 #note p,

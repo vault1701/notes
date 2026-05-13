@@ -1,6 +1,9 @@
 {{define "title"}}Note #{{.Note.ID}}{{end}}
 
 {{define "main"}}
+<div id="note">
+    <pre>{{.Note.ContentMD}}</pre>
+</div>
 <div id="note-edit">
     {{if .IsAuthenticated}}
     <a href="/note/edit/{{.Note.ID}}"><button>Edit</button></a>
@@ -10,8 +13,5 @@
         <button>Delete</button>
     </form>
     {{end}}
-</div>
-<div id="note">
-    <pre>{{.Note.ContentMD}}</pre>
 </div>
 {{end}}
